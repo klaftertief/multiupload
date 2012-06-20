@@ -10,6 +10,11 @@
  * http://www.opensource.org/licenses/MIT
  */
 
+	define('DOCROOT', rtrim(realpath(dirname(__FILE__) . '/../../../'), '/'));
+
+	// Include some parts of the engine
+	require_once(DOCROOT . '/symphony/lib/toolkit/class.lang.php');
+
 class UploadHandler
 {
     protected $options;
@@ -221,6 +226,9 @@ class UploadHandler
             preg_match('/^image\/(gif|jpe?g|png)/', $type, $matches)) {
             $file_name .= '.'.$matches[1];
         }
+				// Make handle a la Symphony
+				$file_info = pathinfo($file_name);
+				$file_name =  Lang::createHandle($file_info['filename']) . '.' . $file_info['extension'];
         if ($this->options['discard_aborted_uploads']) {
             while(is_file($this->options['upload_dir'].$file_name)) {
                 $file_name = $this->upcount_name($file_name);
