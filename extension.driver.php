@@ -6,15 +6,6 @@
 		Definition:
 	-------------------------------------------------------------------------*/
 
-		public function about(){
-			return array('name' => 'Multiupload',
-				'version' => '0.1',
-				'release-date' => '2012-03-29',
-				'author' => array('name' => 'Jonas Coch',
-				'website' => 'http://klaftertief.de')
-			);
-		}
-
 		public function getSubscribedDelegates() {
 			return array(
 				array(
@@ -58,15 +49,15 @@
 				if (is_array($multiupload) && !empty($multiupload) && $multiupload['trigger'] === 'yes') {
 					// Create upload directory
 					// TODO safety!!!!
-					General::realiseDirectory(WORKSPACE . $multiupload['upload-dir'], Symphony::Configuration()->get('write_mode', 'directory'));
+					// General::realiseDirectory(WORKSPACE . $multiupload['upload-dir'], Symphony::Configuration()->get('write_mode', 'directory'));
 
 					require('lib/upload.class.php');
 
 					// TODO defaults and disallow upload to random directories
 					$upload_handler = new UploadHandler(array(
-						'script_url' => URL . $multiupload['script-url'], // '/administration/fotos/neu'
-						'upload_dir' => WORKSPACE . $multiupload['upload-dir'] . '/', // '/media/bilder/',
-						'upload_url' => URL . $multiupload['upload-url'], // '/workspace/media/bilder/',
+						'script_url' => URL . $multiupload['script-url'], // '/administration/media/images/new'
+						'upload_dir' => WORKSPACE . $multiupload['upload-dir'] . '/', // '/media/images/',
+						'upload_url' => URL . $multiupload['upload-url'], // '/workspace/media/images/',
 						'param_name' => 'fields',
 					));
 

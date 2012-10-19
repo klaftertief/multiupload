@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="multiupload" status="experomental" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Multiple Files Uploader</name>
+	<description>Upload multiple files simultaneously</description>
+	<types>
+		<type>Utility</type>
+	</types>
+	<authors>
+		<author>
+			<name github="klaftertief" symphony="klaftertief">Jonas Coch</name>
+		</author>
+	</authors>
+	<releases>
+		<release version="0.1" date="2012-08-20" min="2.3"/>
+	</releases>
+</extension>
